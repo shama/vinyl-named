@@ -6,11 +6,11 @@ module.exports = function(opts) {
     if (typeof opts === 'function') {
       var res = opts.call(this, file)
       if (res != null) {
-        file.chunkName = res
+        file.named = res
         this.queue(file)
       }
     } else {
-      file.chunkName = path.basename(file.path, path.extname(file.path))
+      file.named = path.basename(file.path, path.extname(file.path))
       this.queue(file)
     }
   })

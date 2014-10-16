@@ -12,7 +12,7 @@ var through = require('through')
 fs.src('src/*.js')
   .pipe(named())
   .pipe(through(function(file) {
-    // file.chunkName now equals the basename minus the extension
+    // file.named now equals the basename minus the extension
   }))
 
 // Or return a name for a given file
@@ -39,6 +39,7 @@ npm install vinyl-named
 
 ## release history
 
+* 1.1.0 - renaming `chunkName` to `named` to be more generic
 * 1.0.0 - initial release
 
 ## license
