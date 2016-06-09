@@ -10,7 +10,8 @@ module.exports = function(opts) {
         this.queue(file)
       }
     } else {
-      file.named = path.basename(file.path, path.extname(file.path))
+      var pathobj = path.parse(file.relative)
+      file.named = path.join(pathobj.dir, pathobj.name)
       this.queue(file)
     }
   })
